@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Royal Tutorials -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Login Form</title>
+    <link rel="stylesheet" href="stylesh.css">
+    <script>
+        function validateForm(event) {
+            // Prevent default form submission
+            event.preventDefault();
+
+            // Get input values
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if fields are empty
+            if (!username || !password) {
+                alert('Please fill the login form to continue.');
+            } else {
+                // Redirect to home.html if filled
+                window.location.href = 'home.html';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="validateForm(event)">
+            <h2>Login</h2>
+            <div class="inputBx">
+                <input type="text" id="username" required="required">
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="inputBx">
+                <input type="password" id="password" required="required">
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <a href="#">Forgot password?</a>
+                <a href="#">Signup</a>
+            </div>
+            <div class="inputBx">
+                <button type="submit" class="back">LOGIN</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

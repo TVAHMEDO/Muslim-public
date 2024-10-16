@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website CEO - AHMED_XD</title>
+  <style>
+ .content .typewriter{
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    font-weight: 700;
+}
+
+.typewriter span{
+    color: rgb(211,3,3);
+    text-shadow:  0 0 10px rgb(211,3,3);
+}
+
+.content p{
+    font-size: clamp(0,4rem, 0.2rem + 9vw, 1rem);
+    margin : 10px 0;
+}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin-top: 50px;
+    }
+
+    .neon-text {
+      font-size: 50px;
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+      position: relative;
+      animation: glow 1.5s infinite alternate;
+      margin-top: 20px;
+    }
+
+    .neon-text:before,
+    .neon-text:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #00FFFF;
+      filter: blur(10px);
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .neon-text:after {
+      background: #ff00ff;
+      filter: blur(20px);
+      opacity: 0.5;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #ff00ff, 0 0 60px #ff00ff;
+      }
+      to {
+        text-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #00FFFF;
+      }
+    }
+
+    .description {
+      margin-top: 20px;
+      font-size: 24px;
+      text-align: center;
+      color: #ddd;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .digital-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #00FFFF;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid #00FFFF;
+      border-radius: 5px;
+      position: relative;
+      background: #111;
+      transition: background 0.5s ease;
+    }
+
+    .digital-button:hover {
+      background: #00FFFF;
+      color: #111;
+      box-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #ff00ff;
+    }
+
+    .contact-section {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .contact-section a {
+      color: #00FFFF;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .contact-section a:hover {
+      color: #ff00ff;
+    }
+
+    /* Ensures the page content is scrollable */
+    .content {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    /* Make the content card scrollable on small screens */
+    @media (max-width: 768px) {
+      .content {
+        padding: 10px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Logo Image -->
+  <img src="ceo.jpg" alt="AHMED_XD Logo" class="logo">
+
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Neon Title -->
+    <h1 class="neon-text">CEO - AHMED_XD</h1>
+    <div data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900" class="typewriter">I AM A <span class="typewriter-text"></span><label for="">|</label></div>
+
+    <!-- Description Section -->
+    <p class="description">Welcome to the official website of AHMED_XD, a visionary web developer and digital creator. Specializing in crafting dynamic, cutting-edge web experiences that push the boundaries of modern technology. Explore the world of innovation and excellence!</p>
+    
+    <!-- Learn More Button -->
+    <a href="https://www.facebook.com/profile.php?id=100091897863745" class="digital-button">Contact the CEO</a>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+      <h2>Contact the CEO</h2>
+      <a href="mailto:ceo@ahmedshar698@gmail.com">Email: ceo@ahmedxd.com</a>
+      <a href="tel:+923277025198">Phone: 03277025198</a>
+    </div>
+  </div>
+
+  <!-- JavaScript for Interactivity -->
+  <script>
+    // Make sure to scroll smoothly to the contact section when clicking the button
+    document.querySelector('.digital-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+
+<script src="scriptss.js"></script>
+</html>

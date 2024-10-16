@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muslim Public School Admission Form</title>
+    <style>
+        /* 3D Background */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff3cac, #784ba0, #2b86c5);
+            background-size: 300% 300%;
+            animation: gradientAnimation 6s ease infinite;
+            height: 100vh;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .form-container {
+            background-color: white;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+
+        .admin-login {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .admin-table th, .admin-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .admin-table th {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Admission Form -->
+    <div class="form-container" id="form-container">
+        <h1>Muslim Public School Admission Form</h1>
+        <form id="admissionForm" onsubmit="submitForm(event)">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" placeholder="Enter student name" required>
+            <span class="error" id="nameError">Please enter the student's name</span>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <span class="error" id="dobError">Please select the date of birth</span>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <span class="error" id="genderError">Please select a gender</span>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+            <span class="error" id="phoneError">Please enter a valid phone number</span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter email address" required>
+            <span class="error" id="emailError">Please enter a valid email address</span>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" placeholder="Enter address" required></textarea>
+            <span class="error" id="addressError">Please enter the address</span>
+
+            <button type="submit" class="button">Submit Application</button>
+        </form>
+    </div>
+
+    <!-- Admin Login -->
+    <div class="admin-login" id="adminLogin" style="display: none;">
+        <h2>Admin Login</h2>
+        <form id="adminForm" onsubmit="verifyAdminLogin(event)">
+            <label for="adminPhone">Phone Number:</label>
+            <input type="tel" id="adminPhone" name="adminPhone" required>
+
+            <label for="adminPassword">Password:</label>
+            <input type="password" id="adminPassword" name="adminPassword" required>
+
+            <button type="submit" class="button">Login</button>
+        </form>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" style="display: none;">
+        <h2>Admin Dashboard</h2>
+        <h3>Applications Received: <span id="totalApplications">0</span></h3>
+        <table class="admin-table" id="applicationsTable">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="applicationsBody">
+                <!-- Applications will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let applications = [];
+        let adminLoggedIn = false;
+
+        // Simulate form submission
+        function submitForm(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            const studentName = form.studentName.value;
+            const dob = form.dob.value;
+            const gender = form.gender.value;
+            const phone = form.phone.value;
+            const email = form.email.value;
+            const address = form.address.value;
+
+            const newApplication = {
+                studentName,
+                dob,
+                gender,
+                phone,
+                email,
+                address,
+                timestamp: new Date()
+            };
+
+            applications.push(newApplication);
+            localStorage.setItem('applications', JSON.stringify(applications)); // Persist data for 3 days
+            alert("Application submitted successfully!");
+
+            form.reset(); // Reset the form after submission
+        }
+
+        // Admin Login Verification
+        function verifyAdminLogin(event) {
+            event.preventDefault();
+            const phone = document.getElementById('adminPhone').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (phone === '1234567890' && password === 'admin123') {
+                adminLoggedIn = true;
+                showAdminDashboard();
+            } else {
+                alert('Invalid login credentials');
+            }
+        }
+
+        // Show Admin Dashboard
+        function showAdminDashboard() {
+            if (adminLoggedIn) {
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                loadApplications();
+            }
+        }
+
+        // Load Applications from localStorage
+        function loadApplications() {
+            const storedApplications = JSON.parse(localStorage.getItem('applications')) || [];
+            applications = storedApplications;
+
+            // Display applications in table
+            const tbody = document.getElementById('applicationsBody');
+            tbody.innerHTML = '';
+            applications.forEach(app => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${app.studentName}</td>
+                    <td>${app.email}</td>
+                    <td>${app.phone}</td>
+                    <td>${app.dob}</td>
+                    <td>${app.address}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Update total number of applications
+            document.getElementById('totalApplications').innerText = applications.length;
+        }
+
+        // Automatically call loadApplications when page loads
+        window.onload = function() {
+            const storedApplications = JSON.parse(localStorage.getItem('applications')) || [];
+            applications = storedApplications;
+
+            // Display total number of applications
+            document.getElementById('totalApplications').innerText = applications.length;
+        };
+    </script>
+
+</body>
+</html>

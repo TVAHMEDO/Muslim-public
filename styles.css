@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+/* Neon Gradient Background */
+  background: linear-gradient(135deg, #ff00ff, #00ffff, #00ff00, #ff0000, #ffff00);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+/* Neon Glow Effect */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(50px);
+  z-index: -1;
+}
+
+/* Animate the Gradient */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+}
+
+.login-page {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.dashboard {
+    padding: 20px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.sumbit {
+	border-radius: 5px;
+	width: 70%;
+	height: 50px;
+	text-align: center;

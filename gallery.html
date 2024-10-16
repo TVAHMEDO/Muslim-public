@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Gallery</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial scale=1.0" />
+    <link rel="stylesheet" href="gallery.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <img class="pics" src="logo2.jpg" />
+      <div>
+        <a><i class="material-icons icon" onclick="menu()">menu</i></a>
+        <a href="#"
+          ><i class="material-icons icon" style="color: orange">home</i></a
+        >
+        <div class="menu" id="bar">
+<ul>
+  <i class="material-icons second" onclick="hidemenu()">close</i>
+  <li><a href="home.html" target="_blank">Home</a></li>
+  <li><a href="terminal_results.html">Terminal results</a></li>
+  <li><a href="CEO.html">WEBSITE CEO</a></li>
+  <li><a href="principal.html">Contact</a></li>
+  <li><a href="home.html" target="_blank">Gallery</a></li>
+</ul>
+        </div>
+
+        <script>
+          var menulinks = document.getElementById("bar");
+          function menu() {
+            menulinks.style.right = "0";
+          }
+          function hidemenu() {
+            menulinks.style.right = "-300px";
+          }
+        </script>
+      </div>
+    </nav>
+
+    <h1>Welcome to Our School Gallery</h1>
+    <p>A compiled pictures of our School</p>
+
+    <div class="image-container">
+      <div class="image">
+      	<h4> SCHOOL PRINCIPAL/CEO
+        <img src="principal.jpeg" width="100%" id="myimage" />
+        <p><strong>Dilbhar Ali <em>Meesam</em> </strong>is an excellent principal, known for his leadership, dedication, and commitment to student success. He has earned the respect of both staff and students for his supportive approach and passion for education."</p>
+        <div id="myModal" class="modal">
+          <span class="close" id="close">&times;</span>
+          <img src="" alt="" id="modal-image" class="modal-image" />
+          <div class="text">Simon Ryest</div>
+        </div>
+        
+        <img src="student 3.jpeg" width="100%" id="myimage" />
+
+        <img src="student 2.jpeg" width="100%" id="myimage" />
+
+        <img src="student5.jpeg" width="100%" id="myimage" />
+
+        <img src="student 6.jpg" width="100%" id="myimage" />
+
+        <img src="student 4.jpeg" width="100%" id="myimage" />
+
+        <img src="student 2.jpeg" width="100%" id="myimage" />
+
+        <img src="student 3.jpeg" width="100%" id="myimage" />
+
+        <img src="student 6.jpg" width="100%" id="myimage" />
+
+        <img src="student 2.jpeg" width="100%" id="myimage" />
+      </div>
+
+      <div class="image">
+        <img src="student 3.jpeg" width="100%" id="myimage" />
+
+        <img src="student 6.jpg" width="100%" id="myimage" />
+
+        <img src="student 4.jpeg" width="100%" id="myimage" />
+
+        <img src="student 1.jpeg" width="100%" id="myimage" />
+
+        <img src="student5.jpeg" width="100%" id="myimage" />
+
+        <img src="student 1.jpeg" width="100%" id="myimage" />
+
+        <img src="doctor.jpeg" width="100%" />
+
+        <img src="student 6.jpg" width="100%" id="myimage" />
+      </div>
+
+      <div class="image">
+        <img src="student 1.jpeg" width="100%" id="myimage" />
+
+        <img src="student5.jpeg" width="100%" id="myimage" />
+
+        <img src="student 3.jpeg" width="100%" id="myimage" />
+
+        <img src="student 4.jpeg" width="100%" id="myimage" />
+
+        <img src="student 1.jpeg" width="100%" id="myimage" />
+
+        <img src="student 4.jpeg" width="100%" id="myimage" />
+
+        <img src="student5.jpeg" width="100%" id="myimage" />
+
+        <img src="student 6.jpg" width="100%" id="myimage" />
+
+        <img src="student 1.jpeg" width="100%" id="myimage" />
+      </div>
+
+      <div class="image">
+        <img src="student 3.jpeg" width="100%" id="myimage" />
+
+        <img src="student 6.jpg" width="100%" id="myimage" />
+
+        <img src="student 4.jpeg" width="100%" id="myimage" />
+
+        <img src="student 1.jpeg" width="100%" id="myimage" />
+
+        <img src="student5.jpeg" width="100%" id="myimage" />
+
+        <img src="student 1.jpeg" width="100%" id="myimage" />
+
+        <img src="doctor.jpeg" width="100%" id="myimage" />
+
+        <img src="student 6.jpg" width="100%" id="myimage" />
+      </div>
+
+      <script>
+        var originalImage = document.getElementById("myimage");
+
+        var modal = document.getElementById("myModal");
+
+        var modalImage = document.getElementById("modal-image");
+        var text = document.getElementById("text");
+
+        var closeButton = document.getElementById("close");
+
+        originalImage.addEventListener("dblclick", function () {
+          clickImage(modal);
+        });
+        closeButton.addEventListener("click", function () {
+          closeModal(modal);
+        });
+        function clickImage(image) {
+          image.style.display = "block";
+
+          modalImage.src = originalImage.src;
+        }
+        function closeModal(image) {
+          image.style.display = "none";
+        }
+      </script>
+    </div>
+  </body>
+</html>
